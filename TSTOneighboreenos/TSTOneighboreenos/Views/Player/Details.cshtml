@@ -1,0 +1,82 @@
+﻿@model TSTOneighboreenos.Models.Player
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Player</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TSTOhandle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TSTOhandle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameFirst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameFirst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameLast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameLast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SFpath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SFpath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddMe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddMe)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
