@@ -49,7 +49,7 @@ namespace TSTOneighboreenos.Controllers
         // NOTE:  Added a try-catch block
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TSTOhandle,Lv,NameFirst,MidInit,NameLast,Email,SFpath,Active,AddMe")] Player player)
+        public ActionResult Create([Bind(Include = "TSTOhandle,Level,NameFirst,MidInit,NameLast,Email,SpringfieldPath,Active,AddMe")] Player player)
         {
             try
             {
@@ -91,7 +91,33 @@ namespace TSTOneighboreenos.Controllers
         // NOTE: Removed ID field and added MidInit to Bind
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TSTOhandle,Lv,NameFirst,MidInit,NameLast,Email,SFpath,Active,AddMe")] Player player)
+        public ActionResult EditPost(int? id)
+        {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var playerToUpdate = db.Players.Find(id);
+            if(TryUpdateModel(playerToUpdate, "",
+                new string[] { "TSTOhandle", "Level", "NameFirst", "MidInt", "NameLast", "Email"}))
+            {
+                try
+                {
+                    db.Entry(playerToUpdate).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                catch (DataException /* dex */)
+                {
+                    //Log the error (uncomment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                }
+            }
+            return View(playerToUpdate);
+        }
+
+        /*public ActionResult Edit([Bind(Include = "TSTOhandle,Level,NameFirst,MidInit,NameLast,Email,SpringfieldPath,Active,AddMe")] Player player)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +126,7 @@ namespace TSTOneighboreenos.Controllers
                 return RedirectToAction("Index");
             }
             return View(player);
-        }
+        } */
 
         // GET: Player/Delete/5
         public ActionResult Delete(int? id)

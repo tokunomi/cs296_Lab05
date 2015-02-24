@@ -14,11 +14,11 @@ namespace TSTOneighboreenos.DAL
         {
             var players = new List<Player>
             {
-                new Player{TSTOhandle="jtsmith",Lv=21,NameFirst="John",NameLast="Smith",MidInit='T',Email="jtsmith@test.com",SFpath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true,AddMe=true},
-                new Player{TSTOhandle="BillyBoy428",Lv=30,NameFirst="Bill",NameLast="Johnson",MidInit='M',Email="BillyBoy428@test.com",SFpath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true,AddMe=true},
-                new Player{TSTOhandle="LisaIsGr8",Lv=09,NameFirst="Lisa",NameLast="Kinderson",MidInit='A',Email="LisaIsGr8@test.com",SFpath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true,AddMe=true},
-                new Player{TSTOhandle="fhonda",Lv=42,NameFirst="Frank",NameLast="Honda",MidInit='N',Email="fhonda@test.com",SFpath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true,AddMe=true},
-                new Player{TSTOhandle="NatShell",Lv=48,NameFirst="Natalie",NameLast="Shelly",MidInit='B',Email="NatShell@test.com",SFpath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true,AddMe=true}
+                new Player{TSTOhandle="jtsmith",Level=21,NameFirst="John",NameLast="Smith",MidInit='T',Email="jtsmith@test.com",SpringfieldPath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true,AddMe=true},
+                new Player{TSTOhandle="BillyBoy428",Level=30,NameFirst="Bill",NameLast="Johnson",MidInit='M',Email="BillyBoy428@test.com",SpringfieldPath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true,AddMe=true},
+                new Player{TSTOhandle="LisaIsGr8",Level=09,NameFirst="Lisa",NameLast="Kinderson",MidInit='A',Email="LisaIsGr8@test.com",SpringfieldPath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true,AddMe=true},
+                new Player{TSTOhandle="fhonda",Level=42,NameFirst="Frank",NameLast="Honda",MidInit='N',Email="fhonda@test.com",SpringfieldPath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true,AddMe=true},
+                new Player{TSTOhandle="NatShell",Level=48,NameFirst="Natalie",NameLast="Shelly",MidInit='B',Email="NatShell@test.com",SpringfieldPath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true,AddMe=true}
             };
 
             players.ForEach(p => context.Players.Add(p));
@@ -26,15 +26,31 @@ namespace TSTOneighboreenos.DAL
 
             var neighbors = new List<Neighbor>
             {
-                new Neighbor{TSTOhandle="BillyBoy428",Lv=30,SFpath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true},
-                new Neighbor{TSTOhandle="LisaIsGr8",Lv=09,SFpath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true},
-                new Neighbor{TSTOhandle="jtsmith",Lv=21,SFpath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true},
-                new Neighbor{TSTOhandle="fhonda",Lv=42,SFpath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true},
-                new Neighbor{TSTOhandle="NatShell",Lv=48,SFpath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true},
+                new Neighbor{TSTOhandle="BillyBoy428",Level=30,SpringfieldPath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true},
+                new Neighbor{TSTOhandle="LisaIsGr8",Level=09,SpringfieldPath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true},
+                new Neighbor{TSTOhandle="jtsmith",Level=21,SpringfieldPath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true},
+                new Neighbor{TSTOhandle="fhonda",Level=42,SpringfieldPath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true},
+                new Neighbor{TSTOhandle="NatShell",Level=48,SpringfieldPath="~/Content/Images/springfields/tsto_homeScreen-tmb.png",Active=true},
 
             };
 
             neighbors.ForEach(n => context.Neighbors.Add(n));
+            context.SaveChanges();
+
+            var friends = new List<Friend>
+            {
+                new Friend{PlayerID=1, NeighborID=2},
+                new Friend{PlayerID=1, NeighborID=3},
+                new Friend{PlayerID=1, NeighborID=4},
+                new Friend{PlayerID=2, NeighborID=1},
+                new Friend{PlayerID=2, NeighborID=4},
+                new Friend{PlayerID=3, NeighborID=1},
+                new Friend{PlayerID=3, NeighborID=2},
+                new Friend{PlayerID=3, NeighborID=4},
+                new Friend{PlayerID=4, NeighborID=1}
+            };
+
+            friends.ForEach(f => context.Friends.Add(f));
             context.SaveChanges();
 
             var galleries = new List<Gallery>

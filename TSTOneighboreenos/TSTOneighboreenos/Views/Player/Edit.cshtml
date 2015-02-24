@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Player</h4>
+        <h4>Player Edits</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
@@ -26,10 +26,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Lv, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Level, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Lv, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Lv, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Level, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Level, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -38,6 +38,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NameFirst, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NameFirst, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MidInit, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MidInit, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MidInit, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -58,10 +66,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SFpath, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SpringfieldPath, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SFpath, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SFpath, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.SpringfieldPath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SpringfieldPath, "", new { @class = "text-danger" })
             </div>
         </div>
 

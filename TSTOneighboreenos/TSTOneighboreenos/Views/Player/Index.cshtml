@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.TSTOhandle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Lv)
+            @Html.DisplayNameFor(model => model.Level)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NameFirst)
@@ -30,7 +30,7 @@
             @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-             @Html.DisplayNameFor(model => model.SFpath)
+             @Html.DisplayNameFor(model => model.SpringfieldPath)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Active)
@@ -47,7 +47,7 @@
             @Html.DisplayFor(modelItem => item.TSTOhandle)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Lv)
+            @Html.DisplayFor(modelItem => item.Level)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NameFirst)
@@ -62,7 +62,7 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            <img src="@Url.Content(item.SFpath)" alt="" class="img-thumbnail"/>  @* (got correct format from Rob) *@
+            <img src="@Url.Content(item.SpringfieldPath)" alt="" class="img-thumbnail"/>  @* (got correct format from Rob) *@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Active)

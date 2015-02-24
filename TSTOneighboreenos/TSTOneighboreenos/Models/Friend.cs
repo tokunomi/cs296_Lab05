@@ -16,5 +16,6 @@ namespace TSTOneighboreenos.Models
         // Navigation properties
         public virtual Player Player { get; set; }
         public virtual Neighbor Neighbor { get; set; }
+
     }
 }

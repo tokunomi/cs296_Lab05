@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Player</h4>
+    <h4>Player Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,11 +19,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Lv)
+            @Html.DisplayNameFor(model => model.Level)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Lv)
+            @Html.DisplayFor(model => model.Level)
         </dd>
 
         <dt>
@@ -51,11 +51,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SFpath)
+            @Html.DisplayNameFor(model => model.SpringfieldPath)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SFpath)
+            @Html.DisplayFor(model => model.SpringfieldPath)
         </dd>
 
         <dt>
@@ -74,6 +74,28 @@
             @Html.DisplayFor(model => model.AddMe)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Friends)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>TSTO Handle</th>
+                    <th>Level</th>
+                </tr>
+                @foreach (var item in Model.Friends)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Neighbor.TSTOhandle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Neighbor.Level)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <p>
